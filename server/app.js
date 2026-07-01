@@ -12,5 +12,5 @@ app.use('/api/breakdowns', breakdownsRoutes);
 app.use(errorHandler);
 
 app.listen(env.port, () => {
-    console.log(`Server is running on http://localhost:${env.port}`);
+    console.log(`Server is running on port ${env.port}`);
 });
