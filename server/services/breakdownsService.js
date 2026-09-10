@@ -18,10 +18,18 @@ export async function getCurrentBreakdowns() {
     const latestBatch = await getLatestSuccessfulBatch();
 
     if (!latestBatch) {
-        return [];
+        return {
+            breakdowns: [],
+            importedAt: null,
+        };
     }
 
-    return mapBreakdowns(await getBreakdownsByBatchId(latestBatch.id));
+    const breakdowns = await getBreakdownsByBatchId(latestBatch.id);
+
+    return {
+        breakdowns: mapBreakdowns(breakdowns),
+        importedAt: latestBatch.imported_at,
+    };
 }
 
 async function importBreakdownsBatch(rawBreakdowns, batchId) {

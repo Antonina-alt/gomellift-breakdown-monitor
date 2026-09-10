@@ -5,8 +5,8 @@ function StatusCards({ stoppedCount, lastUpdated }) {
     return (
         <div className="row g-3 mb-4">
             <StatusCard title="Остановлено лифтов" value={stoppedCount} />
-            <StatusCard title="Последнее обновление" value={lastUpdated} />
-            <StatusCard title="Интервал обновления" value={REFRESH_DATA_INTERVAL_LABEL} />
+            <StatusCard title="Последний импорт данных" value={lastUpdated} />
+            <StatusCard title="Интервал проверки данных" value={REFRESH_DATA_INTERVAL_LABEL} />
         </div>
     );
 }
